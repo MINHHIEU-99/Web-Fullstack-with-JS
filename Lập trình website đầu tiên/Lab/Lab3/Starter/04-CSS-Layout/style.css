@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    color: #444;
+    font-family: sans-serif;
+
+    border-top: 10px solid #1098ad;
+    position: relative;
+}
+/* PAGE SECTIONS */
+.container {
+    width: 1200px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto;
+}
+
+.main-header {
+    background-color: #f7f7f7;
+    padding: 20px 40px;
+    margin-bottom: 60px;
+    /* height: 80px; */
+}
+
+nav {
+    font-size: 18px;
+}
+
+article {
+    margin-bottom: 60px;
+}
+
+.post-header {
+    margin-bottom: 40px;
+}
+
+/* aside {
+    background-color: #f7f7f7;
+    border-top: 5px solid #1098ad;
+    border-bottom: 5px solid #1098ad;
+    padding: 50px 0;
+    width: 500px;
+} */
+
+/* SMALLER ELEMENTS */
+h1 {
+    color: #1098ad;
+    font-size: 26px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+}
+h2 {
+    font-size: 40px;
+    font-family:sans-serif;
+    color: #1098ad;
+}
+h3 {
+    color: #1098ad;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+h4 {
+    color: #1098ad;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    /* border: 1px solid #ccc; */
+    /* background-color: grey; */
+}
+p {
+    font-size: 22px;
+    font-family: sans-serif;
+    line-height: 1.5;
+    
+}
+
+aside {
+    border-top: 4px solid #1098ad;
+    border-bottom: 4px solid #1098ad;
+    background-color: #f7f7f7;
+    padding: 50px 40px;
+}
+/* LVHA */
+/* unvisited link */
+a:link {
+    color: #1098ad;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #1098ad;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
+/* LVHA */
+
+.post-img {
+    width: 100%;
+    height: auto;
+}
+
+/* .fullCard {
+    width: 700px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 50px 75px;
+    padding: 4px;
+    background-color: #f7f7f7;
+}
+.cardContent {
+    padding: 10px;
+}
+.cardText {
+    margin-bottom: 30px;
+} */
+
+.related {
+    list-style: none;
+    /* margin-left: 0; */
+}
+
+li:first-child{
+    font-weight: bold;
+}
+
+li:last-child{
+    font-style: italic;
+}
+
+li:nth-child(2){
+    color:red;
+}
+
+/* Resolving Conflicts Selector */
+#copyright {
+    color: red;
+}
+.copyright {
+    color: blue;
+}
+.text {
+    color: yellow;
+}
+footer p {
+    color: green;
+}
+
+/* FLOATS */
+.author-img {
+    float: left;
+}
+.author {
+    /* padding-left: 80px; */
+    padding-top: 10px;
+    float: left;
+    margin-left: 20px;
+}
+
+h1 {
+    float: left;
+}
+nav {
+    float: right;
+}
+
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+/* build simple layout */
+article {
+    width: 825px;
+    float: left;
+}
+
+aside {
+    width: 300px;
+    float: right;
+}
+
+footer {
+    clear: both;
+}

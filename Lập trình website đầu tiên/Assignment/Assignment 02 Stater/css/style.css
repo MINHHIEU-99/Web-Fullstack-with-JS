@@ -1,0 +1,436 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'open_sans', sans-serif;
+    color: #343a40;
+    margin: auto;
+    width: 1450px;
+    padding: 20px;
+    line-height: 1.5; 
+}
+
+.bg-grey {
+    background: #f7f7f7;
+}
+
+.container{
+    width: 1350px;
+    margin: auto;
+    display: block;
+
+    padding: 30px 50px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/***************************************************** BANNER **************************************************/
+#banner {
+    height: 40vh;
+    background-image: linear-gradient(
+        rgba(34, 34, 34, 0.6), 
+        rgba(34, 34, 34, 0.6)),  
+        url(/images/banner.jpg);
+    background-size: cover;
+
+    font-size: 30px;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.banner-job {
+    font-size: 10px;
+    color: #adb5bd;
+}
+
+/****************************************************** NAV-BAR ***************************************************/
+.container-nav {
+    padding: 0;    
+    display: flex;
+    justify-content: center; 
+}
+
+.btn:link,
+.btn:visited {
+    font-size: 12px;
+    background-color: #fff;
+    color: #343a40;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 5px;
+
+}
+
+.nav-bar-table {    
+    border-collapse: collapse;
+}
+
+.nav-bar-table tr {
+    display: flex;
+}
+
+.nav-bar-table td {
+    border-left: 1px solid #e9ecef;  
+    border-top: none;
+    border-bottom: none;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+}
+
+.nav-bar-table td.th-last {
+    border-right: 1px solid #e9ecef;
+}
+
+.nav-bar-table td.th-median {
+    flex-direction: column;
+    padding: 0 80px;    
+}
+
+.th-median--name {
+    font-size: 22px;
+}
+
+.th-median--job {
+    font-size: 10px;
+    color: #ced4da;    
+}
+
+.nav-icon{
+    width: 20px;
+    height: 20px;
+    fill: #339af0;
+}
+
+
+
+/* *************************************************** ABOUT **************************************************/
+.container-about {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 704px 704px;
+
+}
+#target {
+    background-color: #f1f3f5;
+    padding: 60px 30px 40px;
+}
+
+#personal-info {
+    background-color: #e9ecef;
+    padding: 60px 30px 40px;
+    line-height: 1.9;
+}
+
+.info {
+    color: #868e96;
+    font-size: 10px;
+}
+.info-list {
+    font-weight: bold;
+    color: #495057;
+}
+
+#personal-info li {
+    list-style-type: none;
+}
+
+.about-icon {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    color: #339af0;
+}
+
+
+
+
+/************************************************** JOB INFO *******************************************************/
+.job-info--container {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 1fr 450px;
+    justify-content: center;
+    column-gap: 30px;
+    font-family: 'open_sans', sans-serif;
+    line-height: 1.5;    
+}
+
+.job-info--item {
+    border: 1px solid #e9ecef;
+}
+
+.job-info--title {
+    font-size: 24px;
+    color: #343a40;
+    margin: 60px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-info--content {
+    font-size: 10px;
+    color: #868e96;
+    padding-left: 40px;
+    padding-right: 20px;
+    margin-bottom: 100px;
+}
+
+.content-time {
+    font-size: 10px;
+    font-style: italic;
+    color: #868e96;
+}
+
+.content-description {
+    list-style-type: none;
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+.job-info--content ul {
+    list-style-type: none;
+}
+.custom-bullet::before {
+    content: "\2022";
+    color:#339af0;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    transform: scale(1.5);
+}
+.custom-bullet {
+    font-size: 14px;
+    color: #343a40;
+}
+
+.content-time--end {
+    padding: 1px 15px;
+    border-radius: 5px;
+    background-color: #339af0;
+    color: #f7f7f7;
+}
+/* Edit icon of job-info--title */
+.ic-briefcase,
+.ic-pencil,
+.ic-telescope,
+.ic-mic,
+.ic-tools-2 {
+    transform: scale(1.6);
+    color: #ced4da;
+    padding-right: 10px;
+}
+
+/************* Edit icon of job-info--content ************/
+.ic-megaphone,
+.ic-strategy,
+.ic-hotairballoon,
+.ic-basket {
+    transform: scale(1.6);
+    padding: 5px;
+    border: 1px solid #74c0fc;
+    border-radius: 50%;
+    color: #74c0fc;
+    width: 25px;
+    text-align: center;
+}
+
+/*************** Edit HOBBY content **************/
+.hobby-content {
+    display: flex;
+    gap: 20px;
+    padding-left: 25px;
+}
+
+.hobby-content--item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/************** Edit Language & Skill content *************/
+.language-skill--content {
+    color: #343a40;
+}
+
+.language-content--item {
+    margin-bottom: 20px;
+}
+
+.fluent-bar {
+    display: flex;
+    gap: 10px;
+}
+
+p:empty {
+    width: 40px;
+    height: 2px;
+    background: #339af0;
+    margin-top: 5px;
+}
+
+.skill-content--item {
+    margin-bottom: 20px;
+}
+
+
+
+
+/************************************************** CERTIFICATE ****************************************************/
+.certificate-content {
+    padding-left: 145px;
+    color: #868e96;
+}
+.certificate-item {
+    font-size: 10px;
+
+    display: flex;
+    gap: 20px;
+}
+.certificate-item--row1 {
+    width: max-content;
+    border-bottom: 1px solid #ebe6de;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    gap: 70px;
+}
+.certificate-item--row1---2 {
+    padding-left: 10px;
+    border-left: 1px solid #eeddc5;
+}
+.certificate-content--name {
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+
+/************************************************** PROJECT ********************************************************/
+.section-content {
+    /* width: 1250px; */
+    font-family: 'open_sans', sans-serif;
+    font-size: 10px;
+    color: #868e96;
+
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: auto;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.project-item-content {
+    border: 1px solid #e9ecef;
+    border-top: none;
+}
+
+.section-project--content img {
+    width: 100%;
+    display: block;
+}
+
+/********** Arrange elements of project-grid ***********/
+.project-content--1 {
+    grid-column: 1;
+    grid-row: 2;
+}
+.project-content--2 {
+    grid-column: 2;
+    grid-row: 2;
+}
+.project-content--3 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+/********** Edit elements *********/
+
+.project-name {
+    font-size: 12px;
+    color: #343a40;
+    padding: 10px;
+}
+.project-note {
+    border-top: 1px solid #e9ecef;
+}
+
+.project-note {
+    margin: 0;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.project-note--year {
+    padding: 5px 10px;
+    background-color: #339af0;
+    border-radius: 15px;
+    color: #f7f7f7;
+}
+
+.icon-user-1,
+.icon-lightbulb-1 {
+    transform: scale(1.5);
+    color: #868e96;
+}
+
+.project-table {
+    border-collapse: collapse;
+}
+
+.project-table tr {
+    border-top: 1px solid #e9ecef;
+    padding: 5px 10px;
+
+    display: flex;
+}
+.project-table td {
+    width: 100%;
+}
+.project-table td:first-child{
+    width: 100px;
+     /* 50% của cái gì ??? */
+}
+
+
+
+/*************************************************** FOOTER *********************************************************/
+.footer-list {
+    list-style: none;
+    font-family: 'open_sanslight', sans-serif;
+    font-size: 10px;
+    color: #868e96;
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.footer-element {
+    display: flex;
+    gap: 10px;
+}
+.footer-icon {
+    color: #339af0;
+    transform: scale(2);
+}
+

@@ -1,0 +1,376 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'open_sans', sans-serif;
+    color: #343a40;
+    margin: auto;
+    /* width: 1450px; */
+    padding: 20px;
+    line-height: 1.5; 
+}
+p {
+    margin-bottom: 0;
+}
+
+.bg-grey {
+    background: #f7f7f7;
+}
+
+.section-title {
+    font-size: 24px;
+}
+
+/* BANNER */
+#banner {
+    height: 40vh;
+    background-image: linear-gradient(
+        rgba(34, 34, 34, 0.6), 
+        rgba(34, 34, 34, 0.6)),  
+        url(/images/banner.jpg);
+    background-size: cover;
+
+    font-size: 30px;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.banner-job {
+    font-size: 10px;
+    color: #adb5bd;
+}
+
+/* NAV-BAR */
+.btn {
+    font-size: 12px; 
+}
+.navbar-table td {
+    border-left: 1px solid #e9ecef;  
+} 
+
+.navbar-table td:last-child {
+    border-right: 1px solid #e9ecef;
+}
+
+
+.th-median--name {
+    font-size: 22px;
+}
+.th-median--job {
+    font-size: 10px;
+    color: #ced4da;    
+}
+.nav-icon{
+    width: 20px;
+    height: 20px;
+    fill: #339af0;
+}
+
+
+/* ABOUT */
+#personal-info {
+    background-color: #e9ecef;
+}
+
+.info {
+    color: #868e96;
+    font-size: 10px;
+}
+.info-list {
+    font-weight: bold;
+    color: #495057;
+}
+.about-icon {
+    color: #339af0;
+}
+
+
+/* JOB INFO */
+.col {
+    flex: 1 0 0%;
+}
+.job-info--content {
+    font-size: 10px;
+    color: #868e96;
+} 
+
+.custom-bullet::before {
+    content: "\2022";
+    color:#339af0;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    transform: scale(1.5);
+}
+.custom-bullet {
+    font-size: 14px;
+    color: #343a40;
+}
+
+.content-time--end {
+    padding: 1px 15px;
+    border-radius: 5px;
+    background-color: #339af0;
+    color: #f7f7f7;
+}
+
+.ic-briefcase,
+.ic-pencil,
+.ic-telescope,
+.ic-mic,
+.ic-tools-2 {
+    transform: scale(1.6);
+    color: #ced4da;
+    padding-right: 10px;
+}
+
+.ic-megaphone,
+.ic-strategy,
+.ic-hotairballoon,
+.ic-basket {
+    transform: scale(1.6);
+    padding: 5px;
+    border: 1px solid #74c0fc;
+    border-radius: 50%;
+    color: #74c0fc;
+    width: 25px;
+    text-align: center;
+}
+
+.language-skill--content {
+    color: #343a40;
+}
+p:empty {
+    width: 40px;
+    height: 2px;
+    background: #339af0;
+    margin-top: 5px;
+}
+
+/* CERTIFICATE */
+
+.certificate-content {
+    color: #868e96;
+    font-size: 10px;
+}
+.certificate-content--name {
+    font-size: 12px;
+    color: #343a40;
+}
+.certificate-image {
+    width: 150px;
+}
+
+/* PROJECT */
+.project-content {
+    font-size: 10px;
+    color: #868e96;
+}
+.project-year {
+    padding: 3px 10px;
+    background-color: #339af0;
+    border-radius: 15px;
+    color: #f7f7f7;
+}
+
+.icon-user-1,
+.icon-lightbulb-1 {
+    transform: scale(1.5);
+    color: #868e96;
+}
+
+.project-table {
+    border-collapse: collapse;
+}
+
+.project-table tr {
+    border-top: 1px solid #e9ecef;
+    padding: 5px 10px;
+
+    display: flex;
+}
+.project-table td {
+    width: 100%;    /* cho 2 cột có width bằng nhau */
+}
+.project-table td:first-child{
+    width: 50%;     /* cột đầu tiên có width = 50% width của vùng chứa nó */
+}
+
+
+
+/* FOOTER */
+#footer {
+    font-size: 10px;
+    color: #868e96;
+}
+.footer-icon {
+    color: #339af0;
+    transform: scale(2);
+}
+
+
+
+@media (min-width: 1000px) {
+    .job-container {
+        max-width: 900px;
+    }
+    .certificate-container {
+        max-width: 900px;
+    }
+    .project-container {
+        max-width: 900px;
+    }
+}
+
+
+
+/**************************** Tablet *************************/
+@media (min-width: 576px) and (max-width: 991px) {
+    .section-title {
+        font-size: 30px;
+    }
+    /* banner */
+    #banner {
+        font-size: 40px;
+    }
+    .banner-job {
+        font-size: 20px;
+    }    
+    /* Info */
+    .info {
+        font-size: 14px;
+    }
+    .about-icon {
+        font-size: 14px;
+    }
+    /* Job */
+    .job-info--content {
+        font-size: 14px;
+    }
+    .content-time {
+        font-size: 14px;
+    }
+    .custom-bullet {
+        font-size: 14px;
+    }
+    .ic-megaphone,
+    .ic-strategy,
+    .ic-hotairballoon,
+    .ic-basket {
+        width: 30px;
+    }
+    /* certificate */
+    .certificate-content {
+        font-size: 14px;
+    }
+    .certificate-image {
+        width: 100%;
+    }
+    .certificate-content--name {
+        font-size: 16px;
+    }
+    .certificate-border {
+        border-bottom: 1px solid #d4a236;
+        /* border-right: 1px solid #d4a236; */
+    }
+    /* project */
+    .project-content {
+        font-size: 12px;
+    }
+    .project-name {
+        font-size: 16px;
+    }
+    /* footer */
+    #footer {
+        font-size: 12px;
+    }
+    .footer-icon {
+        transform: scale(3);
+    }
+}
+
+/********************** Mobile **********************/
+@media (max-width: 575px) {
+    .section-title {
+        font-size: 36px;
+    }
+    /* banner */
+    #banner {
+        font-size: 44px;
+    }
+    .banner-job {
+        font-size: 20px;
+    }    
+    /* nav bar */
+    .navbar-table td {
+        border: none;
+    }
+    .navbar-table td:last-child {
+        border: none;
+    }
+    .btn {
+        font-size: 20px;
+    }
+    /* Info */
+    .info {
+        font-size: 20px;
+    }
+    .about-icon {
+        font-size: 24px;
+    }
+    /* Job */
+    .job-info--content {
+        font-size: 20px;
+    }
+    .content-time {
+        font-size: 20px;
+    }
+    .custom-bullet {
+        font-size: 24px;
+    }
+    .ic-megaphone,
+    .ic-strategy,
+    .ic-hotairballoon,
+    .ic-basket {
+        width: 40px;
+    }
+    /* certificate */
+    .certificate-content {
+        font-size: 20px;
+    }
+    .certificate-image {
+        width: 100%;
+    }
+    .certificate-content--name {
+        font-size: 22px;
+    }
+    .certificate-border {
+        border-bottom: 1px solid #dd4eb2;
+    }
+    /* project */
+    .project-content {
+        font-size: 20px;
+    }
+    .project-name {
+        font-size: 22px;
+    }
+    /* footer */
+    .footer-icon {
+        transform: scale(4);
+    }
+}
