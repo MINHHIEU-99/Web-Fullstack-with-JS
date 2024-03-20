@@ -70,7 +70,7 @@ function renderTableData(petArr) {
     }
 };
 
-/* Bắt sự kiện với nút Submit */
+/* Bat su kien voi nut Submit */ 
 submitBtn.addEventListener('click', function () {
     const data = {
         id: idInput.value,
@@ -87,7 +87,7 @@ submitBtn.addEventListener('click', function () {
         date: new Date(),
     };
 
-    /* Hàm validate dữ liệu đầu vào */
+    /* Ham validate du lieu dau vao */
     function validateData(data) {
         if (data.id == '') {
             alert('ID must be filled out');
@@ -132,7 +132,7 @@ submitBtn.addEventListener('click', function () {
         } else return 1;
     }
 
-    /* Formatting Date - chuyển về định dạng tháng-ngày-năm */
+    /* Formatting Date */
     function formatDate(ti) {
         const dateDIc = {
             Jan: '01',
@@ -235,5 +235,4 @@ function renderBreed(breedArr) {
 typeInput.onchange = function () {
     let breedArr = JSON.parse(getFromStorage('breedArr', '[]'));
     renderBreed(breedArr);
-    console.log(breedArr);
 };

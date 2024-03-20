@@ -6,4 +6,5 @@ function saveToStorage(key, value) {
 
 function getFromStorage(key, defaultVal) {
     return localStorage.getItem(key) ?? defaultVal;
-}
+};
+
