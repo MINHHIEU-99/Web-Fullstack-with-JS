@@ -180,7 +180,7 @@ submitBtn.addEventListener('click', function () {
 /* DELETE PET */
 const deletePet = petId => {
     function checkId() {
-        return id == petId;
+        return petId; 
     }
     if (confirm('Are you sure?')) {
         petArr.splice(petArrId.findIndex(checkId), 1); // Hàm findIndex nhận đầu vào là 1 function, hàm splice thực hiện loại bỏ phần tử có id mong muốn

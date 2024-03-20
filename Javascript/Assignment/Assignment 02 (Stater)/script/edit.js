@@ -10,18 +10,22 @@ const weightInput = document.getElementById('input-weight');
 const lengthInput = document.getElementById('input-length');
 const colorInput = document.getElementById('input-color-1');
 const breedInput = document.getElementById('input-breed');
-const vaccinatedInput = document.getElementById('input-vaccinated');
-const dewormedInput = document.getElementById('input-dewormed');
-const sterilizedInput = document.getElementById('input-sterilized');
+let vaccinatedInput = document.getElementById('input-vaccinated');
+let dewormedInput = document.getElementById('input-dewormed');
+let sterilizedInput = document.getElementById('input-sterilized');
 
 const submitBtn = document.getElementById('submit-btn');
+let petArr = JSON.parse(getFromStorage("petArr", '[]'));
+let petArrId = JSON.parse(getFromStorage("petArrId", '[]'));
+let breedArr = JSON.parse(getFromStorage('breedArr', '[]'));
+
 
 /* Add sidebar animation */
 sideBar.addEventListener('click', function(e) {
     sideBar.classList.toggle('active');
 });
 
-
+/* Edit Function */
 function renderTableData(petArr) {
     document.getElementById('tbody').innerHTML = '';
 
@@ -64,37 +68,35 @@ function renderTableData(petArr) {
         document.getElementById('tbody').appendChild(row);
     }
 };
-
-let petArr = JSON.parse(getFromStorage("petArr", '[]'));
-let petArrId = JSON.parse(getFromStorage("petArrId", '[]'));
-let breedArr = JSON.parse(getFromStorage('breedArr', '[]'));
-
 renderTableData(petArr);
+
+/* Edit Button Handler */
+function renderForm(pet, breedPet) {
+    document.getElementById('container-form').classList.remove('hide');
+
+    idInput.value = pet.id;
+    nameInput.value = pet.name;
+    ageInput.value = pet.age;
+    typeInput.value = pet.type;
+    weightInput.value = pet.weightPet;
+    lengthInput.value = pet.lengthPet;
+    colorInput.value = pet.color; 
+    renderBreed(breedPet);
+
+    breedInput.value = pet.breed;
+    vaccinatedInput.checked = pet.vaccinated;
+    sterilizedInput.checked = pet.sterilized;
+    dewormedInput.checked = pet.dewormed;
+};
 
 function startEditPet(petId) {
     let editPet = petArr.filter(pet => pet.id == petId);
+    console.log(editPet);
     renderForm(editPet.at(0), breedArr);
     
 };
 
-function renderForm(pet, breedPet) {
-    document.getElementById('container-form').classList.remove('hide');
-
-    idInput.value = `${pet.id}`;
-    nameInput.value = `${pet.name}`;
-    ageInput.value = `${pet.age}`;
-    typeInput.value = `${pet.type}`;
-    weightInput.value = `${pet.weightPet}`;
-    lengthInput.value = `${pet.lengthPet}`;
-    colorInput.value = `${pet.color}`; 
-    renderBreed(breedPet);
-
-    breedInput.value = `${pet.breed}`;
-    vaccinatedInput.checked = `${pet.vaccinated}`;
-    sterilizedInput.checked = `${pet.sterilized}`;
-    dewormedInput.checked = `${pet.dewormed}`;
-};
-
+/* Render Breed */
 function renderBreed(breedArr) {
     document.getElementById('input-breed').innerHTML = '<option>Select Breed</option>'; 
 
@@ -108,14 +110,14 @@ function renderBreed(breedArr) {
         breedInput.appendChild(option);
     }
 };
-
 typeInput.onchange = function () {
     renderBreed(breedArr);
 };
 
+/* Submit Button Handler */
 submitBtn.addEventListener('click', function () {
     const data = {
-        id: idInput.value,
+        id: idInput.value.toString(),
         name: nameInput.value,
         age: ageInput.value,
         type: typeInput.value,
@@ -128,7 +130,7 @@ submitBtn.addEventListener('click', function () {
         sterilized: sterilizedInput.checked,
         date: new Date(),
     };
-
+    console.log(data);
     /* Hàm validate dữ liệu đầu vào */
     function validateData(data) {
         if (data.name == '') {
@@ -207,16 +209,14 @@ submitBtn.addEventListener('click', function () {
 });
 
 const updateData = newData => {
-    function checkId() {
-        return id == newData.id;
-    }    
-    petArr.splice(petArrId.findIndex(checkId), 1); // Hàm findIndex nhận đầu vào là 1 function, hàm splice thực hiện loại bỏ phần tử có id mong muốn
-    petArrId.splice(petArrId.findIndex(checkId), 1);
+    petArr.splice(petArrId.findIndex((id) => id == newData.id), 1); // Hàm findIndex nhận đầu vào là 1 function, hàm splice thực hiện loại bỏ phần tử có id mong muốn
+    petArrId.splice(petArrId.findIndex((id) => id == newData.id), 1);
 
-    petArr.push(newData);
-    petArrId.push(newData.id);
+    petArr.unshift(newData);
+    petArrId.unshift(newData.id);
 
     saveToStorage('petArr', JSON.stringify(petArr));
+    saveToStorage('petArrId', JSON.stringify(petArrId));
+
     renderTableData(petArr);
-    
 };
