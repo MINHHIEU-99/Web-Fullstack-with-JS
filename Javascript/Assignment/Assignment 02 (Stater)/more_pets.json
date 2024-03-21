@@ -1,0 +1,30 @@
+[
+	{
+		"id": "001",
+		"name": "Lucky",
+		"age": "4",
+		"type": "Dog",
+		"weightPet": "3",
+		"lengthPet": "77",
+		"color": "#000000",
+		"breed": "Poodle",
+		"vaccinated": true,
+		"dewormed": false,
+		"sterilized": true,
+		"date": "03/20/2024"
+	},
+    {
+        "id": "006",
+		"name": "Bi",
+		"age": "5",
+		"type": "Dog",
+		"weightPet": "5",
+		"lengthPet": "55",
+		"color": "#123456",
+		"breed": "Chihuahua",
+		"vaccinated": true,
+		"dewormed": false,
+		"sterilized": true,
+		"date": "03/20/2024"
+    }
+]
