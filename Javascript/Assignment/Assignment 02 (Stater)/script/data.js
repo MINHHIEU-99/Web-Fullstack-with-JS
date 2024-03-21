@@ -6,7 +6,7 @@ const readFile = document.getElementById('input-file');
 
 let petArr = JSON.parse(getFromStorage("petArr", '[]'));
 let petArrId = JSON.parse(getFromStorage("petArrId", '[]'));
-let petAddArr;
+let petAddArr = [];
 
 exportBtn.addEventListener('click', function saveStaticDataToFile() {
     var blob = new Blob([JSON.stringify(petArr, null, "\t")],
@@ -44,10 +44,8 @@ importBtn.addEventListener('click', function () {
         }
     };
     petAddArr.forEach(updatePet);
-    console.log(petArr);
-    console.log(petArrId);
-
-    // saveToStorage('petArr', JSON.stringify(petArr));
-    // saveToStorage('petArrId', JSON.stringify(petArrId));
+    saveToStorage('petArr', JSON.stringify(petArr));
+    saveToStorage('petArrId', JSON.stringify(petArrId));
 });
 
+console.log(petArr);
