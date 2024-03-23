@@ -43,9 +43,8 @@ importBtn.addEventListener('click', function () {
             petArrId.unshift(item.id);
         }
     };
+    
     petAddArr.forEach(updatePet);
     saveToStorage('petArr', JSON.stringify(petArr));
     saveToStorage('petArrId', JSON.stringify(petArrId));
 });
-
-console.log(petArr);

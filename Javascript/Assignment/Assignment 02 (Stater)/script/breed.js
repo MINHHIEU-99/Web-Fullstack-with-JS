@@ -21,10 +21,10 @@ function renderBreedTable(breedArr) {
                         <td>${breedArr[i].type}</td>
                         <td>
                             <button
-                                id='${i + 1}'
+                                id='${i}'
                                 type="button"
                                 class="btn btn-danger"
-                                onclick="deleteBreed('${i + 1}')"
+                                onclick="deleteBreed('${i}')"
                             >
                                 Delete
                             </button>
@@ -32,14 +32,11 @@ function renderBreedTable(breedArr) {
         document.getElementById('tbody').appendChild(row);
     }
 };
-
 // DELETE BREED //
 const deleteBreed = breedId => {
-    function checkId() {
-        return id == breedId;
-    }
     if (confirm('Are you sure?')) {
-        breedArr.splice(checkId, 1); // Hàm findIndex nhận đầu vào là 1 function, hàm splice thực hiện loại bỏ phần tử có id mong muốn
+        breedArr.splice(breedId, 1);  
+        // console.log(breedArr);
         saveToStorage('breedArr', JSON.stringify(breedArr));
         renderBreedTable(breedArr); // Hiển thị lại danh sách thú cưng khi đã xóa thú cưng cần thiết
     }
@@ -80,7 +77,7 @@ submitBtn.addEventListener('click', function () {
     const validate = validateData(dataBreed);
     if (validate) {
         breedArr.push(dataBreed);
-        saveToStorage('breedArr', JSON.stringify(breedArr));
+        // saveToStorage('breedArr', JSON.stringify(breedArr));
         clearInput();
         renderBreedTable(breedArr);
     }
