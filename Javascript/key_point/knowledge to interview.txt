@@ -1,0 +1,4 @@
+Knowledge must know about JS to interview:
+
+- How asynchronous JS works behind the scenes (https://funix.udemy.com/course/the-complete-javascript-course/learn/lecture/22649347#overview)
+  --> Microtasks queue has priority over regular callback queue
