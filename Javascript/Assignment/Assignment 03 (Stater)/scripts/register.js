@@ -11,6 +11,7 @@ const KEY = 'USER_ARRAY';
 let userArr = JSON.parse(getFromStorage(KEY, '[]'));
 let userNameArr = JSON.parse(getFromStorage('USER_NAME', '[]'));
 
+// let currentUser = JSON.parse(getFromStorage('CURRENT_USER', '[]'));
 // saveToStorage(KEY, JSON.stringify(userArr))
 
 registerBtn.addEventListener('click', function () {
@@ -33,7 +34,7 @@ registerBtn.addEventListener('click', function () {
             return false;
         }
         if (data.userName == '') {
-            alert('User Name must be filled out');
+            alert('Username must be filled out');
             return false;
         }
         if (data.password == '') {
@@ -62,18 +63,28 @@ registerBtn.addEventListener('click', function () {
         document.getElementById('myForm').reset();
     }
 
-    /* VALIDATE INPUT AND RENDER PET*/
     const validate = validateData(data);
     if (validate) {
-        userArr.push(data);
-        userNameArr.push(data.userName);
-        // userArrId.push(data.id);
+        const user = parseUser(data);
+        console.log(user);
 
-        // saveToStorage(KEY, JSON.stringify(userArr));
-        // saveToStorage('petArrId', JSON.stringify(petArrId));
+        userArr.push(user);
+        userNameArr.push(user.userName);
+
+        saveToStorage(KEY, JSON.stringify(userArr));
+        saveToStorage('USER_NAME', JSON.stringify(userNameArr));
 
         clearInput();
         window.location.href = '../pages/login.html';
-        console.log(userArr);
+        // console.log(userArr);
+        // console.log(userNameArr);
     }
 });
+
+// userArr.splice(0, 1);
+// userNameArr.splice(0, 1);
+// saveToStorage(KEY, JSON.stringify(userArr));
+// saveToStorage('USER_NAME', JSON.stringify(userNameArr));
+
+// console.log(userArr);
+// console.log(userNameArr);
