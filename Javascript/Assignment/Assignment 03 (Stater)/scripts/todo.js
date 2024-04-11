@@ -74,7 +74,7 @@ addBtn.addEventListener('click', function () {
         clearInput();
     } else {
         // currentUser = JSON.parse(currentUser);
-        console.log(1);
+
         const mission = {
             task: taskInput.value,
             owner: currentUser.userName,

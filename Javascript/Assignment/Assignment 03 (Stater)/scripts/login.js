@@ -16,7 +16,7 @@ loginBtn.addEventListener('click', function () {
         password: pWInput.value,
     };
 
-    let loginUser = userArr[userNameArr.findIndex(e => e == loginInfo.userName)];
+    let loginUser = userArr[userArr.findIndex(e => e.userName == loginInfo.userName)];
     function validateData(data) {
         if (data.userName == '') {
             alert('Username must be filled out');

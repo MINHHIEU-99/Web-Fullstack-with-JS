@@ -5,13 +5,27 @@ const prevBtn = document.getElementById('btn-prev');
 const nextBtn = document.getElementById('btn-next');
 const pageNum = document.getElementById('page-num');
 
-const apiKey = '445e0c7967ac4ebb82ef54528388a7f0';
+let userArr = JSON.parse(getFromStorage('USER_ARRAY', '[]'));
+let userNameArr = JSON.parse(getFromStorage('USER_NAME', '[]'));
+let currentUser = getFromStorage('CURRENT_USER');
 
+const apiKey = '445e0c7967ac4ebb82ef54528388a7f0';
 let curPage = parseInt(pageNum.textContent);
-const pageSize = 5;
+let pageSize;
+let category;
+
+if (currentUser != undefined) {
+    currentUser = JSON.parse(currentUser);
+    pageSize = currentUser.newsPerPage;
+    category = currentUser.newsCategory;
+} else {
+    pageSize = 5;
+    category = 'science';
+}
+
 
 const init = function () {
-    getNews('us', curPage, pageSize);
+    getNews('us', category, curPage, pageSize);
 };
 
 // Change state of button when num of page has changed
@@ -35,14 +49,14 @@ function changeBtn(curPage, totalResult, pageSize) {
 const prevPage = function () {
     curPage -= 1;
     pageNum.textContent = curPage;
-    getNews('us', curPage, pageSize);
+    getNews('us', category, curPage, pageSize);
 };
 
 const nextPage = function () {
     curPage += 1;
     pageNum.textContent = curPage;
     // changeBtn(curPage, 36, 5);
-    getNews('us', curPage, pageSize);
+    getNews('us', category, curPage, pageSize);
 };
 
 // Render news in one page
@@ -71,10 +85,10 @@ const renderNews = function (img_path, title, content, url) {
 };
 
 // get news through API
-async function getNews(country, page, pageSize) {
+async function getNews(country, category, page, pageSize) {
     try {
         const resNews = await fetch(
-            `https://newsapi.org/v2/top-headlines?country=${country}&page=${page}&pageSize=${pageSize}&apiKey=445e0c7967ac4ebb82ef54528388a7f0`
+            `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=445e0c7967ac4ebb82ef54528388a7f0`
         );
         if (!resNews.ok) throw new Error('Problem with getting news');
 

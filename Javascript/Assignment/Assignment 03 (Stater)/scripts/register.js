@@ -7,8 +7,8 @@ const uNInput = document.getElementById('input-username');
 const pwInput = document.getElementById('input-password');
 const pwcInput = document.getElementById('input-password-confirm');
 
-const KEY = 'USER_ARRAY';
-let userArr = JSON.parse(getFromStorage(KEY, '[]'));
+// const KEY = 'USER_ARRAY';
+let userArr = JSON.parse(getFromStorage('USER_ARRAY', '[]'));
 let userNameArr = JSON.parse(getFromStorage('USER_NAME', '[]'));
 
 // let currentUser = JSON.parse(getFromStorage('CURRENT_USER', '[]'));
