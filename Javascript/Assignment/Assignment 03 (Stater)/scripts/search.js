@@ -1,28 +1,23 @@
 'use strict';
 
+const searchBtn = document.getElementById('btn-submit');
 const newsContainer = document.getElementById('news-container');
+const qInput = document.getElementById('input-query');
 const prevBtn = document.getElementById('btn-prev');
 const nextBtn = document.getElementById('btn-next');
 const pageNum = document.getElementById('page-num');
-
-let userArr = JSON.parse(getFromStorage('USER_ARRAY', '[]'));
-let userNameArr = JSON.parse(getFromStorage('USER_NAME', '[]'));
-let currentUser = getFromStorage('CURRENT_USER');
+const pageNav = document.getElementById('nav-page-num');
 
 const apiKey = '445e0c7967ac4ebb82ef54528388a7f0';
-let curPage = parseInt(pageNum.textContent);
-let pageSize;
-let category;
 
 const init = function () {
-    getNews('us', category, curPage, pageSize);
+    pageNav.style.display = 'none';
 };
 
 // Change state of button when num of page has changed
 function changeBtn(curPage, totalResult, pageSize) {
     if (curPage === 1) {
         prevBtn.style.display = 'none';
-        // console.log(1);
         return;
     }
     if (curPage >= totalResult / pageSize) {
@@ -39,18 +34,17 @@ function changeBtn(curPage, totalResult, pageSize) {
 const prevPage = function () {
     curPage -= 1;
     pageNum.textContent = curPage;
-    getNews('us', category, curPage, pageSize);
+    getSearchResults(queryInput, curPage, pageSize);
 };
 
 const nextPage = function () {
     curPage += 1;
     pageNum.textContent = curPage;
-    // changeBtn(curPage, 36, 5);
-    getNews('us', category, curPage, pageSize);
+    getSearchResults(queryInput, curPage, pageSize);
 };
 
-// Render news in one page
-const renderNews = function (img_path, title, content, url) {
+// Render search results in one page
+const renderSearchResults = function (img_path, title, content, url) {
     const html = `
         <div class="card flex-row flex-wrap">
             <div class="card mb-3" style="">
@@ -75,38 +69,47 @@ const renderNews = function (img_path, title, content, url) {
 };
 
 // get news through API
-async function getNews(country, category, page, pageSize) {
+async function getSearchResults(keyword, page, pageSize) {
     try {
-        let resNews;
-        if (category == undefined && pageSize == undefined) {
-            resNews = await fetch(
-                `https://newsapi.org/v2/top-headlines?country=${country}&page=${page}&apiKey=445e0c7967ac4ebb82ef54528388a7f0`
-            );
-        } else {
-            resNews = await fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=445e0c7967ac4ebb82ef54528388a7f0`
-            );
-        }
-        if (!resNews.ok) throw new Error('Problem with getting news');
+        const resSearchResults = await fetch(
+            `https://newsapi.org/v2/everything?q=${keyword}&&page=${page}&pageSize=${pageSize}&apiKey=445e0c7967ac4ebb82ef54528388a7f0`
+        );
+        if (!resSearchResults.ok) throw new Error('Problem with getting results');
 
-        const data = await resNews.json();
-        console.log(data.articles, data.totalResults);
+        const data = await resSearchResults.json();
+        // console.log(data, data.articles, data.totalResults);
 
         newsContainer.innerHTML = '';
         await changeBtn(page, data.totalResults, pageSize);
         data.articles.forEach(e => {
-            renderNews(e.urlToImage, e.title, e.description, e.url);
+            renderSearchResults(e.urlToImage, e.title, e.description, e.url);
         });
     } catch (err) {
         console.error(err.message);
     }
 }
 
-///////////////////////////////////////////////////
-if (currentUser != undefined) {
-    currentUser = JSON.parse(currentUser);
-    pageSize = currentUser.newsPerPage;
-    category = currentUser.newsCategory;
-}
+///////////////////////////////
+
+let curPage = parseInt(pageNum.textContent);
+let pageSize = 10;
+
+let queryInput;
+
+searchBtn.addEventListener('click', function () {
+    queryInput = qInput.value;
+    function validateQuery () {
+        if (queryInput == '') {
+            alert('You have not entered a keyword');
+            return false;
+        } else return true;
+    }
+    if(validateQuery()) {
+        getSearchResults(queryInput, curPage, pageSize);
+        pageNav.style.display = 'block';
+    };
+
+});
 
 init();
 prevBtn.addEventListener('click', prevPage);

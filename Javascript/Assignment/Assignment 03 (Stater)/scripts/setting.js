@@ -8,19 +8,6 @@ let userArr = JSON.parse(getFromStorage('USER_ARRAY', '[]'));
 let userNameArr = JSON.parse(getFromStorage('USER_NAME', '[]'));
 let currentUser = getFromStorage('CURRENT_USER');
 
-if (currentUser != undefined) currentUser = JSON.parse(currentUser);
-
-
-let kayle = new User('A', 'B', 'C', '1');
-
-
-console.log(kayle);
-// console.log(userArr);
-
-kayle.newsPerPage = '3';
-console.log(kayle);
-
-
 function clearInput() {
     document.getElementById('settingForm').reset();
 }
@@ -67,3 +54,7 @@ saveBtn.addEventListener('click', function () {
         }
     }    
 });
+
+//////////////////////////////////////////////////////////////
+
+if (currentUser != undefined) currentUser = JSON.parse(currentUser);

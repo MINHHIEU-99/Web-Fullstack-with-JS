@@ -12,7 +12,7 @@ if (currentUser == undefined)
 else {
     currentUser = JSON.parse(currentUser);
     document.getElementById('login-modal').style.display = 'none';
-    welcomeMessage.textContent = `Welcome ${currentUser.userName}`;
+    welcomeMessage.textContent = `Welcome ${currentUser.userName} !!!`;
 }
 
 logOutBtn.addEventListener('click', function () {

@@ -71,20 +71,12 @@ registerBtn.addEventListener('click', function () {
         userArr.push(user);
         userNameArr.push(user.userName);
 
-        saveToStorage(KEY, JSON.stringify(userArr));
+        saveToStorage('USER_ARRAY', JSON.stringify(userArr));
         saveToStorage('USER_NAME', JSON.stringify(userNameArr));
 
         clearInput();
         window.location.href = '../pages/login.html';
-        // console.log(userArr);
-        // console.log(userNameArr);
     }
 });
 
-// userArr.splice(0, 1);
-// userNameArr.splice(0, 1);
-// saveToStorage(KEY, JSON.stringify(userArr));
-// saveToStorage('USER_NAME', JSON.stringify(userNameArr));
 
-// console.log(userArr);
-// console.log(userNameArr);
