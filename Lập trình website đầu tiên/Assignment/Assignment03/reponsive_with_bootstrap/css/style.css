@@ -18,7 +18,7 @@ body {
     margin: auto;
     /* width: 1450px; */
     padding: 20px;
-    line-height: 1.5; 
+    line-height: 1.5;
 }
 p {
     margin-bottom: 0;
@@ -36,9 +36,10 @@ p {
 #banner {
     height: 40vh;
     background-image: linear-gradient(
-        rgba(34, 34, 34, 0.6), 
-        rgba(34, 34, 34, 0.6)),  
-        url(/images/banner.jpg);
+            rgba(34, 34, 34, 0.6),
+            rgba(34, 34, 34, 0.6)
+        ),
+        url(../images/banner.jpg);
     background-size: cover;
 
     font-size: 30px;
@@ -47,7 +48,6 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 .banner-job {
     font-size: 10px;
@@ -56,30 +56,28 @@ p {
 
 /* NAV-BAR */
 .btn {
-    font-size: 12px; 
+    font-size: 12px;
 }
 .navbar-table td {
-    border-left: 1px solid #e9ecef;  
-} 
+    border-left: 1px solid #e9ecef;
+}
 
 .navbar-table td:last-child {
     border-right: 1px solid #e9ecef;
 }
-
 
 .th-median--name {
     font-size: 22px;
 }
 .th-median--job {
     font-size: 10px;
-    color: #ced4da;    
+    color: #ced4da;
 }
-.nav-icon{
+.nav-icon {
     width: 20px;
     height: 20px;
     fill: #339af0;
 }
-
 
 /* ABOUT */
 #personal-info {
@@ -98,7 +96,6 @@ p {
     color: #339af0;
 }
 
-
 /* JOB INFO */
 .col {
     flex: 1 0 0%;
@@ -106,13 +103,13 @@ p {
 .job-info--content {
     font-size: 10px;
     color: #868e96;
-} 
+}
 
 .custom-bullet::before {
-    content: "\2022";
-    color:#339af0;
+    content: '\2022';
+    color: #339af0;
     font-weight: bold;
-    display: inline-block; 
+    display: inline-block;
     width: 1em;
     margin-left: -1em;
     transform: scale(1.5);
@@ -208,10 +205,10 @@ p:empty {
     display: flex;
 }
 .project-table td {
-    width: 100%;    /* cho 2 cột có width bằng nhau */
+    width: 100%; /* cho 2 cột có width bằng nhau */
 }
-.project-table td:first-child{
-    width: 50%;     /* cột đầu tiên có width = 50% width của vùng chứa nó */
+.project-table td:first-child {
+    width: 50%; /* cột đầu tiên có width = 50% width của vùng chứa nó */
 }
 
 /* FOOTER */
@@ -223,8 +220,6 @@ p:empty {
     color: #339af0;
     transform: scale(2);
 }
-
-
 
 @media (min-width: 1000px) {
     .job-container {
@@ -241,8 +236,6 @@ p:empty {
     }
 }
 
-
-
 /**************************** Tablet *************************/
 @media (min-width: 576px) and (max-width: 991px) {
     .section-title {
@@ -254,7 +247,7 @@ p:empty {
     }
     .banner-job {
         font-size: 20px;
-    }    
+    }
     /* Info */
     .info {
         font-size: 14px;
@@ -325,7 +318,7 @@ p:empty {
     }
     .banner-job {
         font-size: 20px;
-    }    
+    }
     /* nav bar */
     .navbar-table td {
         border: none;

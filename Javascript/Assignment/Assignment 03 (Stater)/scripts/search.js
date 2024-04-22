@@ -68,7 +68,7 @@ const renderSearchResults = function (img_path, title, content, url) {
     newsContainer.insertAdjacentHTML('beforeend', html);
 };
 
-// get news through API
+// get search results through API
 async function getSearchResults(keyword, page, pageSize) {
     try {
         const resSearchResults = await fetch(
@@ -80,7 +80,7 @@ async function getSearchResults(keyword, page, pageSize) {
         // console.log(data, data.articles, data.totalResults);
 
         newsContainer.innerHTML = '';
-        await changeBtn(page, data.totalResults, pageSize);
+        changeBtn(page, data.totalResults, pageSize);
         data.articles.forEach(e => {
             renderSearchResults(e.urlToImage, e.title, e.description, e.url);
         });
